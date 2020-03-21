@@ -6,14 +6,14 @@ var PORT = 3000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-//Routes
-app.get("/", function(req,res){
-    res.sendFile(path.join(__dirname, '/app/public/home.html'));
-})
+var friend = [];
 
-app.get('/survey', function(req,res){
-    res.sendFile(path.join(__dirname, '/app/public/survey.html'));
-})
+//Routes
+
+require ('./app/routing/htmlRoutes') (app)
+require ('./app/routing/apiRoutes') (app)
+
+
 
 // Your server.js file should require the basic npm packages we've used in class: express and path.
 app.listen(PORT, function() {
