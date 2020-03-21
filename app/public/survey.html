@@ -147,16 +147,17 @@
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
-                    <option value="5">5( strongly agree)</option>
+                    <option value="5">5 (strongly agree)</option>
                     </select>
                 </div>
-                <button type="submit" it="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </div>
     <p>API Friends List | GitHub Repo</p>
 
     <script type="text/javascript">
     $('#submit').on('click', function(event){
         event.preventDefault();
+
         var newFriend = {
             name: $('#name').val().trim(),
             photo: $('#photo').val().trim(),
@@ -174,7 +175,7 @@
             ]
         }
         
-        $.post('/api/friends', newFriend).then( function(data){
+        $.post('/api/friends', newFriend).then(function(data){
             console.log('survey.html', data);
             alert("You have a friend")
         });

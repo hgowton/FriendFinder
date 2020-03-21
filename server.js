@@ -6,7 +6,7 @@ var PORT = 3000;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-var friend = [];
+
 
 //Routes
 
