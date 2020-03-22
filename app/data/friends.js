@@ -1,53 +1,101 @@
 //holds data
 var friends = [
     {
-    "name":"Ahmed",
-    "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+    "name":"Joyce Byers",
+    "photo":"https://media.vanityfair.com/photos/594c0a35abcbd63dc43099be/3:2/w_1539,h_1026,c_limit/Winona-Stranger-Things.jpg",
     "scores":[
         5,
+        2,
+        3,
+        2,
+        5,
         1,
+        2,
+        5,
         4,
-        4,
-        // 5,
-        // 1,
-        // 2,
-        // 5,
-        // 4,
-        // 1
+        1
     ]
     },
     {
-        "name":"Frankie",
-        "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+        "name":"Jim Hopper",
+        "photo":"https://upload.wikimedia.org/wikipedia/en/0/08/JimHopperST.png",
         "scores":[
             1,
+            5,
+            5,
+            3,
+            5,
             1,
+            2,
             5,
             4,
-            // 5,
-            // 1,
-            // 2,
-            // 5,
-            // 4,
-            // 1
+            1
         ]
         },
         {
-            "name":"Benny",
-            "photo":"https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg",
+            "name":"Eleven",
+            "photo":"https://upload.wikimedia.org/wikipedia/en/5/52/Eleven_%28Stranger_Things%29.jpg",
             "scores":[
+                3,
+                4,
+                5,
+                4,
                 5,
                 1,
+                2,
                 5,
-                1,
-                // 5,
-                // 1,
-                // 2,
-                // 5,
-                // 4,
-                // 1
+                4,
+                1
             ]
-            }
+            },
+            {
+                "name":"Dustin Henderson",
+                "photo":"https://upload.wikimedia.org/wikipedia/en/a/a4/Dustin_Henderson.jpeg",
+                "scores":[
+                    3,
+                    1,
+                    2,
+                    1,
+                    5,
+                    1,
+                    2,
+                    5,
+                    4,
+                    1
+                ]
+                },
+                {
+                    "name":"Nancy Wheeler",
+                    "photo":"https://upload.wikimedia.org/wikipedia/en/9/9c/Nancy_Wheeler.jpeg",
+                    "scores":[
+                        4,
+                        4,
+                        4,
+                        2,
+                        5,
+                        1,
+                        2,
+                        5,
+                        4,
+                        1
+                    ]
+                    },
+                    {
+                        "name":"Mike Wheeler",
+                        "photo":"https://vignette.wikia.nocookie.net/strangerthings8338/images/f/f0/Mike_Wheeler_S3.png/revision/latest/scale-to-width-down/620?cb=20190918231339",
+                        "scores":[
+                            5,
+                            3,
+                            3,
+                            1,
+                            5,
+                            1,
+                            2,
+                            5,
+                            4,
+                            1
+                        ]
+                        }
 ]
 
 module.exports = friends

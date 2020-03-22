@@ -25,7 +25,7 @@ function math (newFriend) {
 //cycles through the scores array to determine the friend with the closest match in survey results
 function findFriend() {
     for (i = 0; i <scoresArray.length; i++) {
-        if(scoresArray[i] > scoresArray[bestFriend]) {
+        if(scoresArray[i] < scoresArray[bestFriend]) {
             bestFriend = i;
         }
     }
@@ -33,7 +33,7 @@ function findFriend() {
 
 //Links the id to the Friend's name
 function idFriend () {
-    var x = bestFriend + 1
+    var x = bestFriend 
     console.log(bestFriend)
     console.log("Best Friend: " + friends[x].name)
 
