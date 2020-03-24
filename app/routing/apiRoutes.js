@@ -27,22 +27,14 @@ function math (newFriend) {
 function findFriend() {
     for (i = 0; i <scoresArray.length; i++) {
         if(scoresArray[i] < scoresArray[bestFriend]) {
-            bestFriend = i;
+            bestfriend = i;
         }
     }
+    console.log(friends[bestfriend])
+    bestFriendName = friends[bestfriend].name
+    console.log("Best Friend: " + bestFriendName + "\n Number: ")
+    return friends[bestfriend]
 }
-
-//Links the id to the Friend's name
-function idFriend () {
-    var x = bestFriend 
-    bestFriendName = friends[x].name
-    testing()
-}
-
-function testing () {
-    console.log("Best Friend: " + bestFriendName + "\n Number: " + bestFriend)
-}
-
 
 module.exports = function(app){
     app.get('/api/friends', function(req,res) {
@@ -55,11 +47,10 @@ module.exports = function(app){
             arrayScore[i] = parseInt(score);
         })
         math(newFriend)
-        findFriend();
-        idFriend();
+        var newestFriend = findFriend();
         friends.push(newFriend);
-        console.log(newFriend);
-        res.json(newFriend);
+        res.json(newestFriend);
+
     })
 
 }
