@@ -5,6 +5,7 @@
 friends = require('../data/friends')
 
 var bestFriend = 0;
+var bestFriendName = "";
 
 var scoresArray = [];
 
@@ -20,7 +21,7 @@ function math (newFriend) {
     }
     
     console.log("scores Array: " + scoresArray)
-}
+} 
 
 //cycles through the scores array to determine the friend with the closest match in survey results
 function findFriend() {
@@ -34,15 +35,18 @@ function findFriend() {
 //Links the id to the Friend's name
 function idFriend () {
     var x = bestFriend 
-    console.log(bestFriend)
-    console.log("Best Friend: " + friends[x].name)
+    bestFriendName = friends[x].name
+    testing()
+}
 
+function testing () {
+    console.log("Best Friend: " + bestFriendName + "\n Number: " + bestFriend)
 }
 
 
 module.exports = function(app){
     app.get('/api/friends', function(req,res) {
-        return res.json(friend)
+        return res.json(friends)
     })
     
     app.post('/api/friends', function(req,res){
@@ -55,7 +59,7 @@ module.exports = function(app){
         idFriend();
         friends.push(newFriend);
         console.log(newFriend);
-
         res.json(newFriend);
     })
+
 }

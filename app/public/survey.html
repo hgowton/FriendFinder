@@ -5,18 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Friend Finder Survey</title>
 
-<!-- Bootstrap code -->
- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAD///8Aoh97AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAERERERERERERERERERERERERERERERERERERERAAAREREREREBEBEREREREQEAEREREQERARERERERAREAABEREBEBAQEREREQEQAQARERERAAAREBEREREBEBEREREREQEQEREREREREREREREREREREREREREREREREREREREAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" rel="icon" type="image/x-icon" />
+ <!-- Latest compiled and minified CSS & JS -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+ <script src="https://code.jquery.com/jquery.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ <!-- Chosen -->
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 <!-- Font Awesome --> 
  <script src="https://kit.fontawesome.com/f0b2e95a6d.js" crossorigin="anonymous"></script>
+ 
+ <link rel="stylesheet" type="text/css" href="./style.css">
 
- <!-- JQuery and JavaScript -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -32,7 +35,7 @@
             <hr>
             <h3><strong>Question 1</strong></h3>
                 <div class="form-group">
-                    <label>Your mind is always bussing with unexplored ideas and plans.</label>
+                    <label>Your mind is always buzzing with unexplored ideas and plans.</label>
                     <select class="form-control" id="q1">
                         <option value></option>
                     <option value="1">1 (strongly disagree)</option>
@@ -152,34 +155,70 @@
                 </div>
                 <button type="submit" id="submit" class="btn btn-primary">Submit</button>
     </div>
-    <p>API Friends List | GitHub Repo</p>
+    <footer>
+        <div class="container">
+            <p><a href="/api/friends">API Friends List</a> | 
+                <a href="https://github.com/hgowton/FriendFinder">GitHub Repo</a></p>
+            </div>
+        </footer>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" >
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <h1 id="friendName">testing</h1>
+            <img class="img-fluid" src="" id="friendPic" alt="friend image">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  <!--end of Modal-->
 
     <script type="text/javascript">
     $('#submit').on('click', function(event){
         event.preventDefault();
 
-        var newFriend = {
-            name: $('#name').val().trim(),
-            photo: $('#photo').val().trim(),
-            scores: [
-                $('#q1').val(),
-                $('#q2').val(),
-                $('#q3').val(),
-                $('#q4').val(),
-                $('#q5').val(),
-                $('#q6').val(),
-                $('#q7').val(),
-                $('#q8').val(),
-                $('#q9').val(),
-                $('#q10').val()
-            ]
-        }
-        
-        $.post('/api/friends', newFriend).then(function(data){
-            console.log('survey.html', data);
-            alert("You have a friend")
+                var newFriend = {
+                    name: $('#name').val().trim(),
+                    photo: $('#photo').val().trim(),
+                    scores: [
+                        $('#q1').val(),
+                        $('#q2').val(),
+                        $('#q3').val(),
+                        $('#q4').val(),
+                        $('#q5').val(),
+                        $('#q6').val(),
+                        $('#q7').val(),
+                        $('#q8').val(),
+                        $('#q9').val(),
+                        $('#q10').val()
+                    ]
+                } 
+            
+                    $.post('api/friends', newFriend, function(data) {
+                        $("#friendName").text(data.name);
+                        $("#friendPic").attr("src", data.photo);
+                        alert("testing")
+                        $("#myModal").modal("toggle");
+                        console.log(data.photo)
+          
+                        // console.log("from page: " + data.name)
+                        // console.log("time" + bestFriend + bestFriendName)
+
+                    });
+
         });
-    });
 
     </script>
 </body>
