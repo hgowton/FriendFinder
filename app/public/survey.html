@@ -15,6 +15,9 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
+<!--Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Rajdhani&display=swap" rel="stylesheet">
+
 <!-- Font Awesome --> 
  <script src="https://kit.fontawesome.com/f0b2e95a6d.js" crossorigin="anonymous"></script>
  
@@ -23,8 +26,8 @@
 </head>
 <body>
     <div class="container">
-        <div class="jumbotron text-center">
-            <h1>Survey Questions</h1>
+        <div class="text-center">
+            <h1 class="title">Survey Questions</h1>
         </div>
             <h2><strong>About You</strong></h2>
             <h4> Name (required)</h4>
@@ -168,13 +171,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Your Stranger Things Spirit Person is...</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <h1 id="friendName">testing</h1>
+            <h1 id="friendName"></h1>
             <img class="img-fluid" src="" id="friendPic" alt="friend image">
           </div>
           <div class="modal-footer">
@@ -212,9 +215,6 @@
                         $("#friendPic").attr("src", data.photo);
                         alert("testing")
                         $("#myModal").modal("toggle");
-          
-                        // console.log("from page: " + data.name)
-                        // console.log("time" + bestFriend + bestFriendName)
 
                     });
 

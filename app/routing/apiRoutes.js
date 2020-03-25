@@ -19,7 +19,6 @@ function math (newFriend) {
         }
         scoresArray.push(friendScore);
     }
-    
     console.log("scores Array: " + scoresArray)
 } 
 
@@ -30,8 +29,6 @@ function findFriend() {
             bestfriend = i;
         }
     }
-    console.log(friends[bestfriend])
-    bestFriendName = friends[bestfriend].name
     console.log("Best Friend: " + bestFriendName + "\n Number: ")
     return friends[bestfriend]
 }
@@ -42,15 +39,24 @@ module.exports = function(app){
     })
     
     app.post('/api/friends', function(req,res){
+
+        //creates object for new friend based on the survery questions
         var newFriend = req.body;
+
+       //turns the string scores from newFriend object into numbers 
         newFriend.scores.forEach(function (score, i, arrayScore) {
             arrayScore[i] = parseInt(score);
         })
+
         math(newFriend)
+
+        //takes in newest friend array from findFriend function
         var newestFriend = findFriend();
+
+        //adds newfriend to the friends array
         friends.push(newFriend);
+
+        //sends the newest friend array to the html page
         res.json(newestFriend);
-
     })
-
 }
