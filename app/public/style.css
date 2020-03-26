@@ -11,9 +11,17 @@ p {
     letter-spacing: -0.5px;
 } 
 
+label {
+    font-family: 'Roboto Condensed', sans-serif;
+    line-height: 1.7;
+    letter-spacing: 0.5px;
+}
+
 .form-control {
     background-color: gray;
     border-color: gray;
+    color: black;
+    font-weight: bold;
 }
 
 img {

@@ -29,7 +29,6 @@ function findFriend() {
             bestfriend = i;
         }
     }
-    console.log("Best Friend: " + bestFriendName + "\n Number: ")
     return friends[bestfriend]
 }
 
